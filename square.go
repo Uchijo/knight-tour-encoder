@@ -32,6 +32,27 @@ func (s Square) Point2Name(point Point) int {
 	return s.Matrix[point.X][point.Y]
 }
 
+func (s Square) Name2Point(name int) Point {
+	for i, outer := range s.Matrix {
+		for j, inner := range outer {
+			if inner == name {
+				return Point{X: i, Y: j}
+			}
+		}
+	}
+	panic("something went wrong")
+}
+
+func (s Square) AllPoints() []Point {
+	retval := []Point{}
+	for i, outer := range s.Matrix {
+		for j := range outer {
+			retval = append(retval, Point{X: i, Y: j})
+		}
+	}
+	return retval
+}
+
 // 1以上かつ1以下ならok
 func (s Square) GenOneInTimeCondition() []string {
 	tmp := []string{

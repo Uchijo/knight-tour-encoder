@@ -8,7 +8,7 @@ func main() {
 
 	fmt.Println(" ======== hogehoge~ ======== ")
 
-	cond := squareList.GenOneInTimeCond()
+	cond := squareList.GenPossibleMoveCond()
 	for _, v := range cond {
 		fmt.Printf("%v\n", v)
 	}
