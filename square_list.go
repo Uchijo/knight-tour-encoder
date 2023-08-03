@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 type SquareList struct {
 	List   []Square
@@ -52,11 +55,13 @@ func (sl SquareList) GenPossibleMoveCond() []string {
 			focusedName := current.Point2Name(focusedPoint)
 			nextPoints := current.NextPoints(focusedPoint)
 
+			cond := strconv.Itoa(-focusedName) + " "
 			for _, nextPoint := range nextPoints {
 				nextName := next.Point2Name(nextPoint)
-				cond := fmt.Sprintf("%v %v 0", -focusedName, -nextName)
-				retval = append(retval, cond)
+				cond += strconv.Itoa(nextName) + " "
 			}
+			cond += "0"
+			retval = append(retval, cond)
 		}
 	}
 
