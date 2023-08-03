@@ -20,10 +20,6 @@ func main() {
 	}
 
 	squareList := utils.NewSquareList(length)
-	// cond := squareList.GenGridCond()
-	// for _, v := range cond {
-	// 	fmt.Printf("%v\n", v)
-	// }
 	cond := squareList.GenCompleteCond()
 	varNum := squareList.VarNum()
 	err = saveFile(filename, varNum, cond)
